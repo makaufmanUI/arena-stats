@@ -35,7 +35,7 @@ def simplify_dataframe(df):
 
 
 
-def plot_rating(df: pd.DataFrame, title: str = 'Rating', showEnemy: bool = False):
+def plot_rating(df, title = 'Rating', showEnemy = False):
     plt.title(title)
     plt.xlabel('Game')
     plt.ylabel('Rating')
@@ -49,7 +49,7 @@ def plot_rating(df: pd.DataFrame, title: str = 'Rating', showEnemy: bool = False
 
 
 
-def calculate_win_rates(df: pd.DataFrame) -> dict:
+def calculate_win_rates(df):
     wins = df['win'].sum()
     losses = len(df) - wins
     rate = wins / len(df)
@@ -112,7 +112,7 @@ def calculate_win_rates(df: pd.DataFrame) -> dict:
 
 
 
-def calculate_comp_win_rates(df: pd.DataFrame) -> dict:
+def calculate_comp_win_rates(df):
     allPossibleComps = list(combinations(['WARRIOR', 'PALADIN', 'HUNTER', 'ROGUE', 'PRIEST', 'DEATHKNIGHT', 'SHAMAN', 'MAGE', 'WARLOCK', 'DRUID'], 2))
     # print(allPossibleComps)
     winRates = {}
