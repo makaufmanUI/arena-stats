@@ -33,7 +33,6 @@ if latest_button:
     data = cleanup_data(parse_csv(arena_data))
     st.session_state.arena_data = data
     st.success("Latest data loaded successfully.")
-    st.write(data)
 
 
 with st.form(key='import_form'):
@@ -45,14 +44,17 @@ with st.form(key='import_form'):
         data = cleanup_data(parse_csv(arena_data))
         st.session_state.arena_data = data
         # data_3v3 = get_3v3_matches(data)
-        st.write(data)
+        # st.write(data)
 
 
 
-big_spacer()
+# big_spacer()
 
 
 if st.session_state.arena_data is not None:
+    big_spacer()
+    st.write(data)
+    
     st.markdown("## Rating over time")
     small_spacer()
     st.pyplot(plot_rating(get_3v3_matches(st.session_state.arena_data), showEnemy=False))
