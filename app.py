@@ -33,6 +33,7 @@ if latest_button:
     data = cleanup_data(parse_csv(arena_data))
     st.session_state.arena_data = data
     st.success("Latest data loaded successfully.")
+    st.write(data)
 
 
 with st.form(key='import_form'):
