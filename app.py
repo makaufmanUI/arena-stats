@@ -3,6 +3,8 @@ from data import *
 import streamlit as st
 from functions import *
 
+database = DB("creds.json","Data")
+
 st.set_page_config(
     page_title="Arena Stats",
     layout="centered",
