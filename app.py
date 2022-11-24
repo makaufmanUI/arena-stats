@@ -53,7 +53,7 @@ with st.form(key='import_form'):
 
 if st.session_state.arena_data is not None:
     big_spacer()
-    st.write(data)
+    st.write(st.session_state.arena_data)
     
     st.markdown("## Rating over time")
     small_spacer()
