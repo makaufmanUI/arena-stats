@@ -1,3 +1,4 @@
+from db import DB
 from data import *
 import streamlit as st
 from functions import *
