@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 #from functions import *
 from matplotlib import pyplot as plt
