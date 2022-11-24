@@ -3,7 +3,7 @@ import streamlit as st
 from matplotlib import pyplot as plt
 from itertools import combinations
 
-def parse_csv(csv: str) -> pd.DataFrame:
+def parse_csv(csv):
     lines = csv.splitlines()
     lines.pop(0)
     headers = lines[0].split(',')
@@ -16,7 +16,7 @@ def parse_csv(csv: str) -> pd.DataFrame:
 
 
 
-def simplify_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+def simplify_dataframe(df):
     df = df.copy()
     df = df.loc[:, (df != '').any(axis=0)]
     df = df.drop(columns=['isRanked', 'startTime', 'endTime', 'zoneId'])
