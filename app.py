@@ -46,7 +46,7 @@ with st.form(key='import_form'):
         arena_data = arena_data.replace(' ', '\n')
         data = cleanup_data(parse_csv(arena_data))
         st.session_state.arena_data = data
-        database.push_one(data)
+        database.push(data)
         # data_3v3 = get_3v3_matches(data)
         # st.write(data)
 
