@@ -32,7 +32,7 @@ if latest_button:
     arena_data = TEST_DATA.replace(' ', '\n')
     data = cleanup_data(parse_csv(arena_data))
     st.session_state.arena_data = data
-    st.success("Test data loaded successfully.")
+    st.success("Latest data loaded successfully.")
 
 
 with st.form(key='import_form'):
