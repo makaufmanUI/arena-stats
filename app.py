@@ -55,7 +55,7 @@ YES,1669254217,1669254392,572,175,,GOLD,GOLD,Cope,Opsec,,,,DEATHKNIGHT,PALADIN,,
 
 
 
-st.set_page_config(page_title="Arena Stats",layout="centered",page_icon=":crossed_swords:")
+#st.set_page_config(page_title="Arena Stats",layout="centered",page_icon=":crossed_swords:")
 df = parse_csv(INPUT_TEXT)
 df = simplify_dataframe(df)
 st.markdown("# Arena Stats")
