@@ -54,27 +54,27 @@ YES,1669254217,1669254392,572,175,,GOLD,GOLD,Cope,Opsec,,,,DEATHKNIGHT,PALADIN,,
 
 
 
-if __name__ == "__main__":
-    st.set_page_config(page_title="Arena Stats",layout="centered",page_icon=":crossed_swords:")
-    df = parse_csv(INPUT_TEXT)
-    df = simplify_dataframe(df)
-    st.markdown("# Arena Stats")
-    st.markdown("---")
 
-    st.markdown("## Comp winrates")
-    st.markdown("---")
-    st.write("")
-    comp_winrates = calculate_comp_win_rates(df)
-    for comp, winrate in comp_winrates.items():
-        if winrate > 0:
-            st.write(f"{comp[0].title()}, {comp[1].title()} :  {winrate*100:.2f}%")
+st.set_page_config(page_title="Arena Stats",layout="centered",page_icon=":crossed_swords:")
+df = parse_csv(INPUT_TEXT)
+df = simplify_dataframe(df)
+st.markdown("# Arena Stats")
+st.markdown("---")
 
-    st.write("")
+st.markdown("## Comp winrates")
+st.markdown("---")
+st.write("")
+comp_winrates = calculate_comp_win_rates(df)
+for comp, winrate in comp_winrates.items():
+    if winrate > 0:
+        st.write(f"{comp[0].title()}, {comp[1].title()} :  {winrate*100:.2f}%")
+
+st.write("")
 
 
     
-    st.markdown("## Rating over time")
-    fig, ax = plt.subplots()
-    ratings = df['oldTeamRating'].astype(int)
-    ax.plot(ratings)
-    st.pyplot(fig)
+st.markdown("## Rating over time")
+fig, ax = plt.subplots()
+ratings = df['oldTeamRating'].astype(int)
+ax.plot(ratings)
+st.pyplot(fig)
