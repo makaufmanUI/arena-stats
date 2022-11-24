@@ -1,6 +1,7 @@
 import streamlit as st
-from functions import *
+#from functions import *
 import matplotlib.pyplot as plt
+from itertools import combinations
 
 def parse_csv(csv: str) -> pd.DataFrame:
     lines = csv.splitlines()
