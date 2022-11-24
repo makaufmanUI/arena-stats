@@ -1,9 +1,9 @@
-from db import DB
+# from db import DB
 from data import *
 import streamlit as st
 from functions import *
 
-database = DB("creds.json","Data")
+# database = DB("creds.json","Data")
 
 st.set_page_config(
     page_title="Arena Stats",
@@ -46,7 +46,7 @@ with st.form(key='import_form'):
         arena_data = arena_data.replace(' ', '\n')
         data = cleanup_data(parse_csv(arena_data))
         st.session_state.arena_data = data
-        database.push(data)
+        # database.push(data)
         # data_3v3 = get_3v3_matches(data)
         # st.write(data)
 
