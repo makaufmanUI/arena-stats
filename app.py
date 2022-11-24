@@ -27,8 +27,8 @@ st.markdown("# Arena Stats")
 st.markdown("---")
 small_spacer()
 
-test_button = st.button("Test")
-if test_button:
+latest_button = st.button("Latest")
+if latest_button:
     arena_data = TEST_DATA.replace(' ', '\n')
     data = cleanup_data(parse_csv(arena_data))
     st.session_state.arena_data = data
