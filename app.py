@@ -32,7 +32,8 @@ small_spacer()
 
 latest_button = st.button("Latest")
 if latest_button:
-    arena_data = TEST_DATA.replace(' ', '\n')
+    arena_data = format_latest_data(LATEST_DATA)
+    arena_data = arena_data.replace(' ', '\n')
     data = cleanup_data(parse_csv(arena_data))
     st.session_state.arena_data = data
     st.success("Latest data loaded successfully.")
