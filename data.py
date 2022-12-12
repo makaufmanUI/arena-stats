@@ -59,6 +59,13 @@ def cleanup_data(df: pd.DataFrame) -> pd.DataFrame:
 
 
 
+def get_2v2_matches(df: pd.DataFrame) -> pd.DataFrame:
+    data = df[df['teamPlayerClass3'] == '']
+    data = data.reset_index(drop=True)
+    return data
+
+
+
 
 def get_3v3_matches(df: pd.DataFrame) -> pd.DataFrame:
     data = df[df['teamPlayerClass3'] != '']
