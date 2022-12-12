@@ -70,12 +70,29 @@ if st.session_state.arena_data is not None:
     st.markdown("### 3v3")
     st.pyplot(plot_rating(get_3v3_matches(st.session_state.arena_data), showEnemy=False))
 
+    
+    
     big_spacer()
+    
+    
     
     st.markdown("## Comp win rates")
     small_spacer()
     st.markdown("### 2v2")
-    # ...
+    
+    data_2v2 = get_2v2_matches(st.session_state.arena_data)
+    comps_2v2 = get_2v2_comps(data_2v2)
+    winrates_2v2 = get_2v2_comps_winrates(data_2v2)
+    for comp in winrates_2v2:
+        classes = comp.split(',')
+        for i in range(len(classes)):
+            classes[i] = classes[i].title()
+        col1a,col2a = st.columns(2)
+        with col1a:
+            st.write(f"{', '.join(classes)} - {winrates_2v2[comp]*100:.1f}%")
+        with col2a:
+            st.progress(winrates_2v2[comp])
+    
     small_spacer()
     st.markdown("### 3v3")
     data_3v3 = get_3v3_matches(st.session_state.arena_data)
