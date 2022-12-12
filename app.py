@@ -98,6 +98,7 @@ if st.session_state.arena_data is not None:
             st.progress(winrates_2v2[comp])
     
     small_spacer()
+    big_spacer()
     st.markdown("### 3v3")
     data_3v3 = get_3v3_matches(st.session_state.arena_data)
     comps = get_3v3_comps(data_3v3)
