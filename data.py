@@ -66,6 +66,46 @@ def get_2v2_matches(df: pd.DataFrame) -> pd.DataFrame:
 
 
 
+def get_2v2_comps(df: pd.DataFrame) -> pd.DataFrame:
+    comps = list(zip(df['enemyPlayerClass1'].tolist(), df['enemyPlayerClass2'].tolist()))
+    unique_comps = set(comps)   # get just the unique comps
+    return list(unique_comps)
+
+
+
+def get_2v2_comps_data(df: pd.DataFrame) -> dict:
+    comps = get_2v2_comps(df)
+    data = {}
+    for comp in comps:
+        data[','.join(comp)] = df[(df['enemyPlayerClass1'] == comp[0]) & (df['enemyPlayerClass2'] == comp[1])].to_dict()
+    return data
+
+
+
+def get_2v2_comps_winrates(df: pd.DataFrame) -> dict:
+    comps_data = get_2v2_comps_data(df)
+    winrates = {}
+    for comp in comps_data:
+        wins = 0
+        losses = 0
+        keys = list(comps_data[comp]['win'].keys())
+        for i in range(len(comps_data[comp]['win'])):
+            if comps_data[comp]['win'][keys[i]]:
+                wins += 1
+            else:
+                losses += 1
+        winrates[comp] = wins / (wins + losses)
+    # sort the winrates by value
+    winrates = dict(sorted(winrates.items(), key=lambda item: item[1], reverse=True))
+    return winrates
+
+
+
+
+
+
+
+
 
 def get_3v3_matches(df: pd.DataFrame) -> pd.DataFrame:
     data = df[df['teamPlayerClass3'] != '']
