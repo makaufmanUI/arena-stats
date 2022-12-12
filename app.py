@@ -39,7 +39,7 @@ if latest_button:
 
 
 with st.form(key='import_form'):
-    arena_data = st.text_input("Input string")
+    arena_data = st.text_input("Import string")
     submit_button = st.form_submit_button("Submit")
     if submit_button:
         st.success("Successfully imported data.")
