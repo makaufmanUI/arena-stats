@@ -62,6 +62,9 @@ if st.session_state.arena_data is not None:
     
     st.markdown("## Rating over time")
     small_spacer()
+    st.pyplot(plot_rating(get_2v2_matches(st.session_state.arena_data), showEnemy=False))
+    small_spacer()
+    small_spacer()
     st.pyplot(plot_rating(get_3v3_matches(st.session_state.arena_data), showEnemy=False))
 
     big_spacer()
