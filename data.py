@@ -410,6 +410,33 @@ def get_3v3_comps_winrates(df: pd.DataFrame) -> dict:
 
 
 
+
+
+def get_3v3_comps_winrates_and_num_matches(df: pd.DataFrame) -> dict:
+    comps_data = get_3v3_comps_data(df)
+    winrates = {}
+    comps_num_matches_dict = {}
+    for comp in comps_data:
+        wins = 0
+        losses = 0
+        keys = list(comps_data[comp]['win'].keys())
+        for i in range(len(comps_data[comp]['win'])):
+            if comps_data[comp]['win'][keys[i]]:
+                wins += 1
+            else:
+                losses += 1
+        winrates[comp] = wins / (wins + losses)
+        comps_num_matches_dict[comp] = wins + losses
+    # sort the winrates by value
+    winrates = dict(sorted(winrates.items(), key=lambda item: item[1], reverse=True))
+    return winrates, comps_num_matches_dict
+
+
+
+
+
+
+
 def simplify_data(df: pd.DataFrame, arena_size: int = 3) -> pd.DataFrame:
     df = df.copy()
     df = df.loc[:, (df != '').any(axis=0)]
