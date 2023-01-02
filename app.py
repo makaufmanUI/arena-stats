@@ -5,6 +5,9 @@ from functions import *
 
 # database = DB("creds.json","Data")
 
+#hide_element("footer", "class", "css-1lsmgbg egzxvld0")
+
+
 st.set_page_config(
     page_title="Arena Stats",
     layout="centered",
