@@ -124,7 +124,7 @@ if st.session_state.arena_data is not None:
     # add a progress bar for each comp
     
     import pandas as pd
-    winrate_dateframe = pd.Dataframe()
+    #winrate_dateframe = pd.Dataframe()
     
     for comp in winrates:
         classes = comp.split(',')
