@@ -132,7 +132,8 @@ if st.session_state.arena_data is not None:
         for i in range(len(classes)):
             classes[i] = classes[i].title()
             winrate_dataframe['comp'] = f"{', '.join(classes)}"
-            winrate_dataframe = winrate_dataframe.append({'comp': f"{', '.join(classes)}", 'winrate': winrates[comp]*100, 'games': games}, ignore_index=True)
+        winrate_dataframe = winrate_dataframe.append({'comp': f"{', '.join(classes)}", 'winrate': winrates[comp]*100, 'games': games}, ignore_index=True)
+    
     st.write(winrate_dataframe)
     
     
