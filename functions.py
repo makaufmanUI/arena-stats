@@ -16,7 +16,7 @@ def plot_rating(df: pd.DataFrame, showEnemy: bool = False):
     ax.tick_params(axis='y', which='major', labelsize=10, color='#0e1117', labelcolor='#ebebd6', pad=10)
     if showEnemy:
         ratings = df['enemyNewTeamRating'].astype(int)
-        ax.plot(ratings, color='xkcd:light red')
+        ax.plot(ratings, color='xkcd:light red', alpha=0.2)
     ax.set_facecolor('#0e1117')
     fig.set_facecolor('#0e1117')
     return fig
