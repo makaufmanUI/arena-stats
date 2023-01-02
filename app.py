@@ -110,7 +110,7 @@ if st.session_state.arena_data is not None:
     comps = get_3v3_comps(data_3v3)
     winrates = get_3v3_comps_winrates(data_3v3)
     
-    st.write(data_3v3)
+    winrates, num_matches = get_3v3_comps_winrates_and_num_matches(data_3v3)
     
 #     games_played = {}
 #     for comp in comps:
@@ -123,12 +123,13 @@ if st.session_state.arena_data is not None:
     # add a progress bar for each comp
     for comp in winrates:
         classes = comp.split(',')
+        games = num_matches[comp]
         for i in range(len(classes)):
             classes[i] = classes[i].title()
         col1,col2 = st.columns(2)
         with col1:
-#             st.write(  f"{', '.join(classes)} - {winrates[comp]*100:.1f}%" + f" ({games} games)"  )
-            st.write(  f"{', '.join(classes)} - {winrates[comp]*100:.1f}%"  )
+            st.write(  f"{', '.join(classes)} - {winrates[comp]*100:.1f}%" + f" ({games} games)"  )
+#             st.write(  f"{', '.join(classes)} - {winrates[comp]*100:.1f}%"  )
         with col2:
             st.progress(winrates[comp])
         # st.write(f"{', '.join(classes)} - {winrates[comp]*100:.1f}%")
