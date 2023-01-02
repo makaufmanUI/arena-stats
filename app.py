@@ -70,7 +70,7 @@ if st.session_state.arena_data is not None:
     small_spacer()
     st.markdown("### 2v2")
     small_spacer()
-    st.pyplot(plot_rating(get_2v2_matches(st.session_state.arena_data), showEnemy=False))
+    st.pyplot(plot_rating(get_2v2_matches(st.session_state.arena_data), showEnemy=True))
     small_spacer()
     big_spacer()
     small_spacer()
