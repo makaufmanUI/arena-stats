@@ -122,6 +122,10 @@ if st.session_state.arena_data is not None:
     # st.write(get_3v3_comps_data(data_3v3))
     # st.write(winrates)
     # add a progress bar for each comp
+    
+    import pandas as pd
+    winrate_dateframe = pd.Dataframe()
+    
     for comp in winrates:
         classes = comp.split(',')
         games = num_matches[comp]
