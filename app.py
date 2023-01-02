@@ -118,7 +118,7 @@ if st.session_state.arena_data is not None:
             classes[i] = classes[i].title()
         col1,col2 = st.columns(2)
         with col1:
-            st.write(f"{', '.join(classes)} - {winrates[comp]*100:.1f}%")
+            st.write(  f"{', '.join(classes)} - {winrates[comp]*100:.1f}%"  )
         with col2:
             st.progress(winrates[comp])
         # st.write(f"{', '.join(classes)} - {winrates[comp]*100:.1f}%")
